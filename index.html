@@ -9,12 +9,12 @@
   <body>
     <section>
       <h2>Challenge 1</h2>
-      <button id="toggle-highlight">Toggle highlight</button>
+      <button id="toggle-highlight" function="toggleHighlight">Toggle highlight</button>
       <p class="font-serif">
         This is the first paragraph, so nothing should happen to it when you
         click the button.
       </p>
-      <p class="font-serif">
+      <p class="font-serif" id="second-paragraph">
         This paragraph should be highlighted gold when you click the button. If
         you click it again the gold highlight should go away.
       </p>
@@ -27,18 +27,21 @@
     <section>
       <h2>Challenge 2</h2>
       <pre>["apple", "banana", "orange"]</pre>
-      <button id="generate-list">Generate list</button>
+      <button id="generate-list" function="generateList">Generate list</button>
+      <ul id="create-list">
+
+      </ul>
     </section>
 
     <section>
       <h2>Challenge 3</h2>
       <form>
         <label for="tweet">New tweet</label>
-        <textarea id="tweet" name="tweet" rows="5" cols="50">
+        <textarea id="tweet" name="tweet" rows="5" cols="50" aria-invalid="false" keydown="validateTweetOnInput()">
 There are currently more than 180 characters in this textarea, which means that it should receive a red outline when you click the "Check tweet" button. If you delete some text and click again it should re-check and remove the outline.
       </textarea
         >
-        <button>Check tweet</button>
+        <button function="validateTweet(tweet)">Check tweet</button>
       </form>
     </section>
 

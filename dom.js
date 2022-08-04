@@ -4,8 +4,16 @@
 3. Remove the class of "highlight" if already present
 e.g. "<p class="para">Hello</p>" -> "<p class="para highlight">Hello</p>"
 */
+var boolHighlight = false;
+
 function toggleHighlight() {
-  // your code here
+  var item = document.getElementById("second-paragraph");
+  boolHighlight = !boolHighlight
+  if(boolHighlight === true){
+    item.classList.add("highlight");
+  } else {
+    item.classList.remove("highlight");
+  }
 }
 
 /* CHALLENGE 2
@@ -17,7 +25,16 @@ e.g. generateList(["hello", "world"]) -> <ul>
                                           </ul>
 */
 function generateList(array) {
-  // your code here
+  var itemList = document.getElementById("create-list");
+  var arrayList = ["apple", "banana", "orange"]
+  
+  arrayList.forEach((data) => {
+    console.log(data);
+    const list = document.createElement("li")
+    list.appendChild(document.createTextNode(data))
+    itemList.appendChild(list);
+  })
+
 }
 
 /* CHALLENGE 3a
@@ -26,7 +43,13 @@ function generateList(array) {
 3. If it contains > 140 characters set the `aria-invalid="true"` attribute
 */
 function validateTweet(textarea) {
-  // your code here
+  var item = document.getElementById("tweet");
+
+  if(textarea.value.length > 140){
+    item.setAttribute('aria-invalid', 'true');
+  } else {
+    item.setAttribute('aria-invalid', 'false');
+  }
 }
 
 /* CHALLENGE 3b
@@ -34,7 +57,11 @@ function validateTweet(textarea) {
 2. Whenever a user types into it validate it using the previous function
 */
 function validateTweetOnInput() {
-  // your code here
+  var item = document.getElementById("tweet");
+
+  item.addEventListener('keydown', () => {
+    validateTweet(item)
+  });
 }
 
 /* CHALLENGE 4
