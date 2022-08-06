@@ -71,5 +71,11 @@ e.g. <button class="toggle-button">Toggle</button>
      <p>This should appear/disappear when the button is clicked</p>
 */
 function setupToggleButtons() {
-  // your code here
+  var buttonsCollection = document.getElementsByClassName("toggle-button");
+
+  Array.from(buttonsCollection).forEach(button => {
+    button.addEventListener("click", () => {
+      button.nextElementSibling.classList.toggle("hide");  
+    })
+  })
 }
